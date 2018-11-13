@@ -1,7 +1,7 @@
 package fractal;
 
-public class Main {
+public class ApplicationRunner {
     public static void main(String[] args) {
-        System.out.print("Hello world!");
+        new FractalDrawer();
     }
 }
