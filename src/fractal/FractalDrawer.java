@@ -7,6 +7,7 @@ public class FractalDrawer extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 300);
         setVisible(true);
-        add(new DrawingPane());
+        setTitle("FractalDrawer");
+        add(new Pentagon());
     }
 }
