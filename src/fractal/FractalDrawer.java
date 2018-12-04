@@ -8,6 +8,6 @@ public class FractalDrawer extends JFrame {
         setSize(300, 300);
         setVisible(true);
         setTitle("FractalDrawer");
-        add(new Pentagon());
+        add(new FractalPattern());
     }
 }
