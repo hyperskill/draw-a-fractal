@@ -1,17 +1,21 @@
 package fractal;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
+
 
 public class DrawingPane extends JComponent {
-    Random rnd = new Random();
     @Override
     protected void paintComponent(Graphics g) {
-        for (int i = 0; i <3 ; i++) {
-            g.setColor(new Color(rnd.nextInt(255),rnd.nextInt(255),rnd.nextInt(255)));
-            g.drawLine(rnd.nextInt(500),rnd.nextInt(500),rnd.nextInt(500),rnd.nextInt(500));
+        int numberOfSides = 5;
+        int xc =getWidth()/2, yc = getHeight()/2, r = 100;
+        int x[] = new int[numberOfSides];
+        int y[] = new int[numberOfSides];
+        for (int c = 0; c < numberOfSides; c++) {
+           double angle = 2 * Math.PI * c /numberOfSides;
+           x[c] = (int)(xc+r*Math.cos(angle));
+           y[c] = (int)(yc+r*Math.sin(angle));
         }
-
+        g.drawPolygon(x,y,numberOfSides);
 
     }
 }
