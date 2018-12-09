@@ -16,6 +16,5 @@ public class DrawingPane extends JComponent {
            y[c] = (int)(yc+r*Math.sin(angle));
         }
         g.drawPolygon(x,y,numberOfSides);
-
     }
 }
