@@ -30,4 +30,23 @@ public class Line
         this.y2 = y2;
         this.color = new Color(color);
     }
+
+    public Line(int x1,int y1,int length, double angle, int color)
+    {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x1 + (int)Math.round(length * Math.cos(Math.toRadians(angle)));
+        this.y2 = y1 + (int)Math.round(length * Math.cos(Math.toRadians(angle)));
+        this.color = new Color(color);
+    }
+
+    public Line(int x1,int y1,int length, double angle)
+    {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x1 + (int)Math.round(length * Math.cos(Math.toRadians(angle)));
+        this.y2 = y1 + (int)Math.round(length * Math.sin(Math.toRadians(angle)));
+        this.color = Color.BLACK;
+    }
+
 }
