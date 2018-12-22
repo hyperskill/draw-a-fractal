@@ -5,23 +5,31 @@ import java.awt.*;
 
 public class DrawingPane extends JComponent
 {
+    private static final int NUM_OF_VERTEX = 5;
     @Override
-    protected void paintComponent(Graphics g) {
-        /* paint here with Graphics object */
-        int colorR,colorG,colorB;
-        int x,x1,y,y1;
-        for (int i = 0; i < 3; i++)
-        {
-            colorR = (int)(Math.random()*255);
-            colorG = (int)(Math.random()*255);
-            colorB = (int)(Math.random()*255);
-            Color color = new Color(colorR,colorG,colorB);
-            g.setColor(color);
-            g.drawLine(getNumber(),getNumber(),getNumber(),getNumber());
-        }
-    }
-    private int getNumber()
+    protected void paintComponent(Graphics g)
     {
-        return (int)(Math.random()*300);
+        int radius = 100;
+        int x0 = 150;
+        int y0 = 150;
+        int phi = 0;
+        g.setColor(Color.RED);
+        g.drawPolygon(calcXCoordinates(radius, x0, phi), calcYCoordinates(radius, y0, phi), NUM_OF_VERTEX);
     }
+    private int[] calcXCoordinates(int radius, int x0, int phi) {
+        int[] xCoordinates = new int[NUM_OF_VERTEX];
+        for (int i = 0; i < NUM_OF_VERTEX ; i++) {
+            xCoordinates[i] = (int) Math.round(x0 + radius * Math.cos(phi + 2 * Math.PI * i / NUM_OF_VERTEX));
+        }
+        return xCoordinates;
+    }
+
+    private int[] calcYCoordinates(int radius, int y0, int phi) {
+        int[] yCoordinates = new int[NUM_OF_VERTEX];
+        for (int i = 0; i < NUM_OF_VERTEX ; i++) {
+            yCoordinates[i] = (int) Math.round(y0 + radius * Math.sin(phi + 2 * Math.PI * i / NUM_OF_VERTEX));
+        }
+        return yCoordinates;
+    }
+
 }
