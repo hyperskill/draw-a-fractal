@@ -6,6 +6,7 @@ import java.awt.*;
 public class DrawingPane extends JComponent {
     private double x;
     private double y;
+    private int deep;
     private int deegr;
 
     @Override
@@ -26,14 +27,25 @@ public class DrawingPane extends JComponent {
 
             Color cl = new Color((int) Math.abs(Math.random() * 155), (int) Math.abs(Math.random() * 155), (int) Math.abs(Math.random() * 155));
             g.setColor(cl);
-            addLines(lines, g, 6);
+            addLines(lines, g, deep);
             g.setColor(Color.BLACK);
             //g.drawLine((int) x0, (int) y0, (int) x1, (int) y1);
         }
 
     }
+
+    public void setDeep(int deep) {
+        this.deep = deep;
+    }
+
+    @Override
+    public Dimension getPreferredSize()
+    {
+        return new Dimension(5,5);
+    }
+
     DrawingPane(int x, int y, int deegr){
-        this.x = (double) x / 2.2;
+        this.x = (double) x / 2.2 + 50;
         this.y = (double) y / 2.2;
         this.deegr = deegr;
     }
